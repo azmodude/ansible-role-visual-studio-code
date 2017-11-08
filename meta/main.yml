@@ -16,6 +16,9 @@ galaxy_info:
         - xenial
         - zesty
         - artful
+    - name: opensuse
+      versions:
+        - all
 
   galaxy_tags:
     - editor

@@ -24,6 +24,12 @@ platforms:
   - name: fedora_26
     image: fedora
     image_version: 26
+  - name: opensuse_leap
+    image: opensuse
+    image_version: leap
+  - name: opensuse_tumbleweed
+    image: opensuse
+    image_version: tumbleweed
 
 provisioner:
   name: ansible
