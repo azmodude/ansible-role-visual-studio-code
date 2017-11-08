@@ -8,7 +8,7 @@
 
 - name: Add Microsoft Visual Studio Code RPM repository
   copy:
-    dest:  /etc/zypp/repos.d/vscode.repo
+    dest: /etc/zypp/repos.d/vscode.repo
     force: no
     owner: root
     group: root
