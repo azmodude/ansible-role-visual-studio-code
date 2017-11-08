@@ -5,3 +5,5 @@
   when: ansible_os_family == "RedHat"
 - include_tasks: "suse.yml"
   when: ansible_os_family == "Suse"
+- include_tasks: install_extensions.yml
+  when: vscode_extensions is defined
