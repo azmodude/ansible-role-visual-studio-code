@@ -1,5 +1,5 @@
-Role Name
-=========
+ansible-role-visual-studio-code
+===============================
 
 A brief description of the role goes here.
 
