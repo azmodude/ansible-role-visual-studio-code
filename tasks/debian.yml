@@ -1,0 +1,27 @@
+---
+- name: Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+
+- name: Install Microsoft GPG key
+  apt_key:
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+    state: present
+
+- name: Add Microsoft Visual Studio Code Repository
+  apt_repository:
+    repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+    filename: vscode
+    state: present
+    update_cache: yes
+
+- name: Install Visual Studio Code including dependencies
+  apt:
+    name: "{{ item }}"
+    update_cache: true
+  with_items:
+    - libgtk2.0-0
+    - libxss1
+    - libasound2
+    - code
