@@ -5,6 +5,7 @@
     description: vscode
     file: vscode
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: True
     baseurl: https://packages.microsoft.com/yumrepos/vscode
 
 - name: Install Visual Studio Code including dependencies
