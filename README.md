@@ -1,6 +1,8 @@
 ansible-role-visual-studio-code
 ===============================
 
+[![Build Status](https://travis-ci.org/azmodude/ansible-role-visual-studio-code.svg?branch=master)](https://travis-ci.org/azmodude/ansible-role-visual-studio-code)
+
 A brief description of the role goes here.
 
 Requirements
