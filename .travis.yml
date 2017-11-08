@@ -6,6 +6,6 @@ services:
 before_install:
   - sudo apt-get -qq update
 install:
-  - pip install molecule>=2.4.0 docker-py
+  - pip install molecule ansible>=2.4.0 docker-py
 script:
   - molecule test
