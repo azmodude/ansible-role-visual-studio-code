@@ -35,9 +35,26 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  playbooks:
+    prepare: prepare.yml
+  inventory:
+    group_vars:
+      all:
+        users_groups:
+          - name: users
+        users:
+          - name: molecule
+            group: users
+        vscode_extensions:
+          - user: molecule
+            extensions:
+              - vscodevim.vim
 scenario:
   name: default
 verifier:
   name: testinfra
   lint:
     name: flake8
+  env:
+    molecule_testuser: molecule
+    molecule_extension: vscodevim.vim

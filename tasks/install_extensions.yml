@@ -1,7 +1,7 @@
 ---
 - name: Install Extensions for user(s)
   become: yes
-  become_user: "{{ item.0.name }}"
+  become_user: "{{ item.0.user }}"
   command: "code --user-data-dir=/tmp --install-extension '{{ item.1 }}'"
   with_subelements:
     - "{{ vscode_extensions }}"

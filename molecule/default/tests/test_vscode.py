@@ -18,3 +18,17 @@ def test_vscode_installed(host):
 def test_vscode_mayrun(host):
     command = "/usr/bin/code --user-data-dir=/tmp --help"
     assert "Visual Studio Code" in host.command(command).stdout.split("\n")[0]
+
+
+def test_extension_installed(host):
+    molecule_testuser = os.environ['molecule_testuser']
+    molecule_testextension = os.environ['molecule_extension']
+    assert molecule_testuser is not None
+    assert molecule_testextension is not None
+
+    extensions_directory = \
+        "/home/{0}/.vscode/extensions".format(molecule_testuser)
+    assert host.file(extensions_directory).is_directory
+
+    entries = host.check_output("ls -1 {0}".format(extensions_directory))
+    assert molecule_testextension in entries

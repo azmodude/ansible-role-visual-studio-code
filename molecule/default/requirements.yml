@@ -1,0 +1,3 @@
+---
+- src: https://github.com/azmodude/ansible-role-users.git
+  name: azmodude.users
