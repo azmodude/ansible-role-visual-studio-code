@@ -10,7 +10,7 @@ def test_vscode_package(host):
     assert host.package("code").is_installed
 
 
-def test_vscode_installed(host):
+def test_vscode_isinstalled(host):
     assert host.file("/usr/bin/code").exists and \
         host.file("/usr/bin/code").is_file
 
@@ -20,7 +20,7 @@ def test_vscode_mayrun(host):
     assert "Visual Studio Code" in host.command(command).stdout.split("\n")[0]
 
 
-def test_extension_installed(host):
+def test_extension_isinstalled(host):
     molecule_testuser = os.environ['molecule_testuser']
     molecule_testextension = os.environ['molecule_extension']
     assert molecule_testuser is not None
