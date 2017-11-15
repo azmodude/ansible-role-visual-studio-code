@@ -1,0 +1,22 @@
+---
+- name: Add Microsoft Visual Studio Code repository
+  yum_repository:
+    name: vscode
+    description: vscode
+    file: vscode
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: True
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+
+- name: Install Visual Studio Code including dependencies
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - which
+    - code
+
+- name: Instal libX11-xcb for Fedora >= 27
+  dnf:
+    name: libX11-xcb
+  when: ansible_distribution_version | int >= 27

@@ -2,7 +2,9 @@
 - include_tasks: "debian.yml"
   when: ansible_os_family == "Debian"
 - include_tasks: "redhat.yml"
-  when: ansible_os_family == "RedHat"
+  when: ansible_os_family == "RedHat" and not ansible_distribution == "Fedora"
+- include_tasks: "fedora.yml"
+  when: ansible_distribution == "Fedora"
 - include_tasks: "suse.yml"
   when: ansible_os_family == "Suse"
 - include_tasks: install_extensions.yml
