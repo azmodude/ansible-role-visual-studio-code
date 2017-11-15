@@ -9,18 +9,12 @@ platforms:
   - name: ubuntu_xenial
     image: ubuntu
     image_version: 16.04
-  - name: ubuntu_zesty
-    image: ubuntu
-    image_version: 17.04
   - name: ubuntu_artful
     image: ubuntu
     image_version: 17.10
   - name: centos_7
     image: centos
     image_version: 7
-  - name: fedora_25
-    image: fedora
-    image_version: 25
   - name: fedora_26
     image: fedora
     image_version: 26
@@ -45,9 +39,15 @@ provisioner:
         users:
           - name: molecule
             group: users
+          - name: molecule2
+            group: users
         vscode_extensions:
           - user: molecule
             extensions:
+              - vscodevim.vim
+          - user: molecule2
+            extensions:
+              - ms-python.python
               - vscodevim.vim
 scenario:
   name: default
@@ -55,6 +55,3 @@ verifier:
   name: testinfra
   lint:
     name: flake8
-  env:
-    molecule_testuser: molecule
-    molecule_extension: vscodevim.vim
