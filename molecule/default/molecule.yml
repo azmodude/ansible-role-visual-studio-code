@@ -7,23 +7,19 @@ lint:
   name: yamllint
 platforms:
   - name: ubuntu_xenial
-    image: ubuntu
-    image_version: 16.04
+    image: ubuntu:16.04
   - name: ubuntu_artful
-    image: ubuntu
-    image_version: 17.10
+    image: ubuntu:17.10
   - name: centos_7
-    image: centos
-    image_version: 7
+    image: centos:7
   - name: fedora_26
-    image: fedora
-    image_version: 26
+    image: fedora:26
+  - name: fedora_27
+    image: fedora:27
   - name: opensuse_leap
-    image: opensuse
-    image_version: leap
+    image: opensuse:leap
   - name: opensuse_tumbleweed
-    image: opensuse
-    image_version: tumbleweed
+    image: opensuse:tumbleweed
 
 provisioner:
   name: ansible
