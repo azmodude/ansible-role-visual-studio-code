@@ -23,8 +23,13 @@
       gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 
 - name: Install Visual Studio Code including dependencies
-  package:
+  zypper:
     name: "{{ item }}"
-    state: present
   with_items:
     - code
+
+- name: Install libX11-xcb for Tumbleweed
+  zypper:
+    name: libX11-xcb1
+  # tumbleweed has a version format of yyyymmdd
+  when: ansible_distribution_version | length == 8
