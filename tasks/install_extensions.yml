@@ -1,11 +1,39 @@
 ---
+# jump through hoops and loops getting the installed extensions because
+# vscode's install-extensions sometimes happily overwrites installed extensions
+# making the role not idempotent
+- name: Get user's already installed extensions
+  block:
+    - name: Get user information from passwd getent database
+      getent:
+        database: passwd
+    - name: Set fact of home directories
+      set_fact:
+        home_directories: "{{ home_directories|default({}) | combine( { item.user: getent_passwd[item.user][4] } ) }}"
+      with_items: "{{ vscode_extensions }}"
+      no_log: True
+    - name: Find installed extension(s) for user(s)
+      find:
+        paths: "{{ item.value }}/.vscode/extensions"
+        file_type: directory
+      with_dict: "{{ home_directories }}"
+      register: find_installed_extensions
+    - name: Concatenate into string for later matching
+      set_fact:
+         installed_extensions: "{{ installed_extensions|default('') }}{{ item.path }},"
+      with_items: "{{ find_installed_extensions.results.0.files }}"
+      no_log: True
+  rescue:
+     - name: Fail when one or more users are missing
+       fail:
+         msg: "Failed getting home directory for one or more user(s)"
+
 - name: Install Extensions for user(s)
   become: yes
   become_user: "{{ item.0.user }}"
-  command: "code --user-data-dir=/tmp --install-extension '{{ item.1 }}'"
+  command: "code --install-extension '{{ item.1 }}'"
   with_subelements:
     - "{{ vscode_extensions }}"
     - extensions
     - skip_missing: yes
-  register: vscode_install_result
-  changed_when: "'already installed' not in vscode_install_result.stdout"
+  when: installed_extensions is not defined or item.1 not in installed_extensions
