@@ -20,13 +20,13 @@
       register: find_installed_extensions
     - name: Concatenate into string for later matching
       set_fact:
-         installed_extensions: "{{ installed_extensions|default('') }}{{ item.path }},"
+        installed_extensions: "{{ installed_extensions|default('') }}{{ item.path }},"
       with_items: "{{ find_installed_extensions.results.0.files }}"
       no_log: True
   rescue:
-     - name: Fail when one or more users are missing
-       fail:
-         msg: "Failed getting home directory for one or more user(s)"
+    - name: Fail when one or more users are missing
+      fail:
+        msg: "Failed getting home directory for one or more user(s)"
 
 - name: Install Extensions for user(s)
   become: yes
