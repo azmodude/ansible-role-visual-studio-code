@@ -1,8 +1,11 @@
 ---
-- name: Install apt-transport-https
+- name: Install apt-transport-https and ca-certicates
   apt:
-    name: apt-transport-https
+    name: "{{ item }}"
     state: present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
 
 - name: Install Microsoft GPG key
   apt_key:
