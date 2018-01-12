@@ -12,8 +12,6 @@ platforms:
     image: ubuntu:17.10
   - name: centos_7
     image: centos:7
-  - name: fedora_26
-    image: fedora:26
   - name: fedora_27
     image: fedora:27
   - name: opensuse_leap
