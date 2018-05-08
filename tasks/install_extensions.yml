@@ -25,3 +25,5 @@
   become: yes
   become_user: "{{ item.0.user }}"
   when: installed_extensions is not defined or item.1 not in installed_extensions[item.0.user]
+  register: extension_cmd
+  failed_when: extension_cmd.rc > 1
