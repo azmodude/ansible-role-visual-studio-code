@@ -7,16 +7,16 @@
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
     gpgcheck: True
     baseurl: https://packages.microsoft.com/yumrepos/vscode
-  become: True
+  become: true
 
 - name: Install Visual Studio Code including dependencies
   dnf:
     name: ['which', 'code']
     state: present
-  become: True
+  become: true
 
 - name: Instal libX11-xcb for Fedora >= 27
   dnf:
     name: libX11-xcb
-  become: True
+  become: true
   when: ansible_distribution_version | int >= 27

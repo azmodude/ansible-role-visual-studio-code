@@ -5,7 +5,7 @@
   rpm_key:
     key: https://packages.microsoft.com/keys/microsoft.asc
     state: present
-  become: True
+  become: true
 
 - name: Add Microsoft Visual Studio Code RPM repository
   copy:
@@ -27,11 +27,11 @@
 - name: Install Visual Studio Code including dependencies
   zypper:
     name: ['code']
-  become: True
+  become: true
 
 - name: Install libX11-xcb for Tumbleweed
   zypper:
     name: libX11-xcb1
   # tumbleweed has a version format of yyyymmdd
-  become: True
+  become: true
   when: ansible_distribution_version | length == 8

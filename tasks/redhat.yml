@@ -7,10 +7,10 @@
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
     gpgcheck: True
     baseurl: https://packages.microsoft.com/yumrepos/vscode
-  become: True
+  become: true
 
 - name: Install Visual Studio Code including dependencies
   yum:
     name: ['which', 'code']
     state: present
-  become: True
+  become: true

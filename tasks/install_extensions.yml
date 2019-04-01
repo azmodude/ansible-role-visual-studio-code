@@ -5,7 +5,7 @@
   changed_when: False
   loop_control:
     label: "{{ item.user }}"
-  become: yes
+  become: true
   become_user: "{{ item.user }}"
   with_items: "{{ vscode_extensions }}"
 - name: Set discovered extensions as fact for later use
@@ -22,7 +22,7 @@
     - "{{ vscode_extensions }}"
     - extensions
     - skip_missing: yes
-  become: yes
+  become: true
   become_user: "{{ item.0.user }}"
   when: installed_extensions is not defined or item.1 not in installed_extensions[item.0.user]
   register: extension_cmd

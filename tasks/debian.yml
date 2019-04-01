@@ -1,15 +1,15 @@
 ---
 - name: Install apt-transport-https and ca-certicates
   apt:
-    name: [ 'apt-transport-https', 'ca-certificates' ]
+    name: ['apt-transport-https', 'ca-certificates']
     state: present
-  become: True
+  become: true
 
 - name: Install Microsoft GPG key
   apt_key:
     url: "https://packages.microsoft.com/keys/microsoft.asc"
     state: present
-  become: True
+  become: true
 
 - name: Add Microsoft Visual Studio Code Repository
   apt_repository:
@@ -17,7 +17,7 @@
     filename: vscode
     state: present
     update_cache: yes
-  become: True
+  become: true
 
 - name: Install Visual Studio Code including dependencies
   apt:
