@@ -26,9 +26,7 @@
 
 - name: Install Visual Studio Code including dependencies
   zypper:
-    name: "{{ item }}"
-  with_items:
-    - code
+    name: ['code']
   become: True
 
 - name: Install libX11-xcb for Tumbleweed

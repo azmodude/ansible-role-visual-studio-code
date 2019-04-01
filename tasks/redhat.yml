@@ -11,9 +11,6 @@
 
 - name: Install Visual Studio Code including dependencies
   yum:
-    name: "{{ item }}"
+    name: ['which', 'code']
     state: present
-  with_items:
-    - which
-    - code
   become: True

@@ -1,11 +1,8 @@
 ---
 - name: Install apt-transport-https and ca-certicates
   apt:
-    name: "{{ item }}"
+    name: [ 'apt-transport-https', 'ca-certificates' ]
     state: present
-  with_items:
-    - apt-transport-https
-    - ca-certificates
   become: True
 
 - name: Install Microsoft GPG key
@@ -24,11 +21,6 @@
 
 - name: Install Visual Studio Code including dependencies
   apt:
-    name: "{{ item }}"
+    name: ['libgtk2.0-0', 'libxss1', 'libasound2', 'code']
     update_cache: true
-  with_items:
-    - libgtk2.0-0
-    - libxss1
-    - libasound2
-    - code
   become: True

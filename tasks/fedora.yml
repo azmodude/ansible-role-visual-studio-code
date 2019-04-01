@@ -11,11 +11,8 @@
 
 - name: Install Visual Studio Code including dependencies
   dnf:
-    name: "{{ item }}"
+    name: ['which', 'code']
     state: present
-  with_items:
-    - which
-    - code
   become: True
 
 - name: Instal libX11-xcb for Fedora >= 27
