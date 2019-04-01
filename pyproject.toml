@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ansible-role-visual-studio-code"
+version = "0.6.2"
+description = ""
+authors = ["Gordon Schulz <gordon.schulz@gmail.com>"]
+
+[tool.poetry.dev-dependencies]
+python = "^3.6"
+molecule = "^2.20"
+bumpversion = "^0.5.3"
+docker-py = "^1.10"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
