@@ -4,6 +4,9 @@ language: python
 python: '3.7'
 dist: bionic
 
+env:
+  - MOLECULE_DEBUG: true
+
 services:
   - docker
 before_install:
