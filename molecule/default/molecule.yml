@@ -12,6 +12,8 @@ platforms:
     image: ubuntu:rolling
   - name: centos_7
     image: centos:7
+  - name: fedora_latest
+    image: fedora:latest
 
 provisioner:
   name: ansible
@@ -36,6 +38,10 @@ provisioner:
           - user: molecule2
             extensions:
               - ms-python.python
+    host_vars:
+      fedora_latest:
+        ansible_python_interpreter: python3
+
 scenario:
   name: default
 verifier:
