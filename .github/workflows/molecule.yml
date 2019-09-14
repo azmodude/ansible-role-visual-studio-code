@@ -1,0 +1,27 @@
+---
+name: Molecule Test
+on: [push, commit]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.5, 3.6, 3.7]
+    steps:
+      - uses: actions/checkout@master
+        with:
+          path: ansible-role-visual-studio-code
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - uses: dschep/install-poetry-action@v1.2
+      - name: Install dependencies
+        run: |
+          sudo apt -y install docker
+          python -m pip install --upgrade pip
+          poetry install --no-dev
+      - name: Test with molecule
+        run: |
+          molecule test
