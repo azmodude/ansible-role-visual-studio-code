@@ -25,4 +25,4 @@ jobs:
           poetry install
       - name: Test with molecule
         run: |
-          molecule test
+          poery run molecule test
