@@ -20,8 +20,7 @@ jobs:
         uses: dschep/install-poetry-action@v1.2
       - name: Install dependencies
         run: |
-          sudo apt-get -y install docker
-          python -m pip install --upgrade pip
+          sudo apt-get -y install docker.io
           poetry install
       - name: Test with molecule
         run: |
