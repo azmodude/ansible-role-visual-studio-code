@@ -4,9 +4,11 @@ version = "0.6.3"
 description = ""
 authors = ["Gordon Schulz <gordon.schulz@gmail.com>"]
 
+[tool.poetry.dependencies]
+python = "^3.7"
+
 [tool.poetry.dev-dependencies]
-#python = "^3.6"
-molecule = "^2.20"
+molecule = "^2.22"
 bumpversion = "^0.5.3"
 docker-py = "^1.10"
 
