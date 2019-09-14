@@ -5,7 +5,7 @@ description = ""
 authors = ["Gordon Schulz <gordon.schulz@gmail.com>"]
 
 [tool.poetry.dev-dependencies]
-python = "^3.6"
+#python = "^3.6"
 molecule = "^2.20"
 bumpversion = "^0.5.3"
 docker-py = "^1.10"
