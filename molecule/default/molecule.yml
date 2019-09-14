@@ -38,7 +38,6 @@ provisioner:
           - user: molecule2
             extensions:
               - ms-python.python
-              - vscodevim.vim
 scenario:
   name: default
 verifier:
