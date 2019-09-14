@@ -15,7 +15,7 @@
     state: present
   become: true
 
-- name: Instal libX11-xcb for Fedora >= 27
+- name: Install libX11-xcb for Fedora >= 27
   dnf:
     name: libX11-xcb
   become: true
