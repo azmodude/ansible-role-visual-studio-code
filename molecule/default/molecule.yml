@@ -12,8 +12,6 @@ platforms:
     image: ubuntu:rolling
   - name: centos_7
     image: centos:7
-  - name: fedora_latest
-    image: fedora:latest
 
 provisioner:
   name: ansible
