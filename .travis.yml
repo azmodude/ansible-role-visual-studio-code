@@ -1,14 +1,14 @@
 ---
 sudo: required
 language: python
-python: '2.7'
+python: '3.7'
 
 services:
   - docker
 before_install:
   - sudo apt-get -qq update
 install:
-  - pip install molecule ansible>=2.4.0 docker-py
+  - pip install molecule>=2.20 ansible>=2.8.0 docker-py
 script:
   - molecule test
 notifications:
