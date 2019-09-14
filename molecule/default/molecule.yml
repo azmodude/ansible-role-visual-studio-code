@@ -6,18 +6,14 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: ubuntu_xenial
-    image: ubuntu:16.04
-  - name: ubuntu_artful
-    image: ubuntu:17.10
+  - name: ubuntu_latest
+    image: ubuntu:latest
+  - name: ubuntu_rolling
+    image: ubuntu:rolling
   - name: centos_7
     image: centos:7
-  - name: fedora_27
-    image: fedora:27
-  - name: opensuse_leap
-    image: opensuse:leap
-  - name: opensuse_tumbleweed
-    image: opensuse:tumbleweed
+  - name: fedora_latest
+    image: fedora:latest
 
 provisioner:
   name: ansible
