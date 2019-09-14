@@ -21,6 +21,6 @@
 
 - name: Install Visual Studio Code including dependencies
   apt:
-    name: ['libgtk2.0-0', 'libxss1', 'libasound2', 'code']
+    name: ['libgtk2.0-0', 'libxss1', 'libx11-xcb1', 'libasound2', 'code']
     update_cache: true
   become: True
